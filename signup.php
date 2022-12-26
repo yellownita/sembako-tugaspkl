@@ -27,7 +27,7 @@
           <?php }else{ ?>
                <input type="text" 
                       name="name" 
-                      placeholder="name"><br>
+                      placeholder="Ur name"><br>
           <?php }?>
 
           <label>Username</label>
@@ -39,7 +39,7 @@
           <?php }else{ ?>
                <input type="text" 
                       name="uname" 
-                      placeholder="uname"><br>
+                      placeholder="username"><br>
           <?php }?>
 
           <label>Email</label>
@@ -51,10 +51,10 @@
           <?php }else{ ?>
                <input type="text" 
                       name="email" 
-                      placeholder="email"><br>
+                      placeholder="Example@gmail.com"><br>
           <?php }?>
 
-          <label>Whatsapp</label>
+          <label>Whatsapp/ ur phone</label>
           <?php if (isset($_GET['whatsapp'])) { ?>
                <input type="text" 
                       name="whatsapp" 
@@ -63,19 +63,19 @@
           <?php }else{ ?>
                <input type="text" 
                       name="whatsapp" 
-                      placeholder="whatsapp"><br>
+                      placeholder="Whatsapp/ ur phone"><br>
           <?php }?>
 
 
      	<label>Password</label>
      	<input type="password" 
                  name="password" 
-                 placeholder="password"><br>
+                 placeholder="Password"><br>
 
           <label>Re Password</label>
           <input type="password" 
                  name="re_password" 
-                 placeholder="re_Password"><br>
+                 placeholder="Re_Password"><br>
 
      	<button type="submit">Sign Up</button>
           
