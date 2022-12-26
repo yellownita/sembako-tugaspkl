@@ -1,30 +1,17 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>LOGIN</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
+	<!-- bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	
-<headerr>
-
-<a href="#" class="logo">Toko Sembako</a>
-
-<div id="menu-bar" class="fas fa-bars"></div>
-
-<nav class="navbar">
-	<a href="#home">Home</a>
-	<a href="#peoples">About </a>
-	<a href="#family"> Family</a>
-	<a href="#blog">Whats?</a>
-</nav>
 
 </headerr>
-
-	
-
-     <form action="login.php" method="post">
+		<form action="login.php" method="post">
      	<h2>LOGIN</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
@@ -43,5 +30,13 @@
           <a href="signup.php">Create an account</a>
      </form>
 	</headerr>
+
+	<script type="module">
+  import { Toast } from 'bootstrap.esm.min.js'
+
+  Array.from(document.querySelectorAll('.toast'))
+    .forEach(toastNode => new Toast(toastNode))
+</script>
+
 </body>
 </html>
