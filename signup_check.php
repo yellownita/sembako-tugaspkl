@@ -26,27 +26,34 @@ if (isset($_POST['name']) && isset($_POST['uname']) && isset($_POST['email'])&& 
 		header("Location: signup.php?error=Name is required& $user");
 	    exit();
 	}
-		else if (empty($uname)) {
+	else if (empty($uname)) {
 			header("Location: signup.php?error=Username is required& $user");
 			exit();
 
 	}else if(empty($email)){
         header("Location: signup.php?error=Email is required& $user");
-	    exit();}
-		
-		else if(empty($whatsapp)){
+	    exit();	
+
+	}else if(empty($whatsapp)){
 			header("Location: signup.php?error=Whatsapp is required& $user");
 			exit();
-	}
-	else if(empty($pass)){
+
+	}else if(empty($pass)){
         header("Location: signup.php?error=Password is required& $user");
 	    exit();
-	}
 
-	else if(empty($re_pass)){
+	}else if(empty($re_pass)){
         header("Location: signup.php?error=Re_password is required& $user");
 	    exit();
+
+	}else if( $pass !== $re_pass)  {
+		echo "<script>
+				alert('konfirmasi password tidak sesuai!');
+		      </script>";
+			  return false;
 	}
+	
+
 
 
 	// hps
