@@ -31,10 +31,10 @@
      	<?php } ?>
 
         <label>Email</label>
-     	<input type="email" name="email" placeholder="email"><br>
+     	<input type="email" name="email" placeholder="Email"><br>
 
      	<label>Password</label>
-     	<input type="password" name="password" placeholder="password"><br>
+     	<input type="password" name="password" placeholder="Password"><br>
 
         
 
