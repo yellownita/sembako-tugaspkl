@@ -2,10 +2,10 @@
 session_start(); 
 include "connect.php";
 
-if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['email'])&& isset($_POST['whatsaap'])
+if (isset($_POST['name']) && isset($_POST['uname']) && isset($_POST['email'])&& isset($_POST['whatsapp'])
     && isset($_POST['password']) && isset($_POST['re_password'])) {
 
-	function validate($data){                                                                                                                                                                                             
+	function validate($data){                                                                                                                                                                                                     
        $data = trim($data);
 	   $data = stripslashes($data);
 	   $data = htmlspecialchars($data);
@@ -15,7 +15,7 @@ if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['email'])&& 
 	$name = validate($_POST['name']);
 	$uname = validate($_POST['uname']);
 	$email = validate($_POST['email']);
-	$whatsapp = validate($_POST['whatsaap']);
+	$whatsapp = validate($_POST['whatsapp']);
 	$pass = validate($_POST['password']);
 	$re_pass = validate($_POST['re_password']);
 
@@ -23,14 +23,14 @@ if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['email'])&& 
 // hps
 
 	if (empty($name)) {
-		header("Location: signup.php?error=Name is required&$user");
+		header("Location: signup.php?error=Name is required& $user");
 	    exit();
 	}
-	else if(empty($uname)){
-        header("Location: signup.php?error=Username is required& $user");
-	    exit();
-	}
-		else if(empty($email)){
+		else if (empty($uname)) {
+			header("Location: signup.php?error=Username is required& $user");
+			exit();
+
+	}else if(empty($email)){
         header("Location: signup.php?error=Email is required& $user");
 	    exit();}
 		
@@ -45,9 +45,9 @@ if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['email'])&& 
 
 	else if(empty($re_pass)){
         header("Location: signup.php?error=Re_password is required& $user");
-
 	    exit();
 	}
+
 
 	// hps
 	
@@ -62,9 +62,8 @@ if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['email'])&& 
 		if (mysqli_num_rows($result) > 0) {
 			header("Location: signup.php?error=The username is taken try another& $user");
 	        exit();
-		}
-		else {
-           $sql2 = "INSERT INTO `user` (`id_user`, 'name',`username`, `email`, `whatsaap`, `password`) VALUES (NULL, '$name', '$uname', '$email', '$whatsapp', '$pass')";
+		}else {
+           $sql2 = "INSERT INTO `user` (`id_user`, `name`, `username`, `email`, `whatsaap`, `password`) VALUES (NULL, '$name', '$uname', '$email', '$whatsapp', '$pass')";
            $result2 = mysqli_query($conn, $sql2);
            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");

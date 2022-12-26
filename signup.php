@@ -15,6 +15,9 @@
                <p class="success"><?php echo $_GET['success']; ?></p>
           <?php } ?>
 
+
+          <!-- form -->
+
           <label>Name</label>
           <?php if (isset($_GET['name'])) { ?>
                <input type="text" 
