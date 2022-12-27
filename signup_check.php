@@ -83,6 +83,6 @@ if (isset($_POST['name']) && isset($_POST['uname']) && isset($_POST['email'])&& 
 	}
 	
 else{
-	header("Location: index.php");
+	header("Location: indexlogin.php");
 	exit();
 }

@@ -15,10 +15,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($email)) {
-		header("Location: index.php?error= Email is required");
+		header("Location: indexlogin.php?error= Email is required");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: index.php?error=Password is required");
+        header("Location: indexlogin.php?error=Password is required");
 	    exit();
 	}else{
 		$sql = "SELECT * FROM user WHERE email='$email' AND password='$pass'";
@@ -33,16 +33,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             	header("Location: home.php");
 		        exit();
             }else{
-				header("Location: index.php?error=Incorect email or password");
+				header("Location: indexlogin.php?error=Incorect email or password");
 		        exit();
 			}
 		}else{
-			header("Location: index.php?error=Incorect email or password");
+			header("Location: indexlogin.php?error=Incorect email or password");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: index.php");
+	header("Location: indexlogin.php");
 	exit();
 }
