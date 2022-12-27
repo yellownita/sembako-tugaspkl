@@ -63,6 +63,17 @@ if (isset($_POST['name']) && isset($_POST['uname']) && isset($_POST['email'])&& 
         // enkripsi password
 	    # $password = password_hash($pass, PASSWORD_DEFAULT);
 
+		// else{
+
+		// 	// hashing the password
+		// 	$pass = md5($pass);
+	
+			
+		// }
+
+
+		// hsg
+
 	    $sql = "SELECT * FROM user WHERE email='$email' ";
 		$result = mysqli_query($conn, $sql);
 

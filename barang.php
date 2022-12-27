@@ -17,6 +17,8 @@
     <h1>Stok Barang</h1>
     <a href="tambah.php">Tambahkan barang</a>
     <a href="home.php">Kembali</a>
+    <a href="logout.php">Logout</a>
+   
     <br> <br>
     <table border = "1" cellpadding = "10" cellspacing = "8">
         <tr>
@@ -36,11 +38,11 @@
            
             <td> <?= $row["id_barang"]; ?> </td>
             <td> <?= $row["nama_barang"]; ?> </td>
-            <td> <?= $row["harga"]; ?> </td>
+            <td> Rp <?= $row["harga"], 0,',','.'; ?> </td>
             <td> <?= $row["stok"]; ?> </td>
             <td> <img src="./gambar/<?= $row['gambar']?>" width="40%"></td>
             <td>
-                <a href="">Edit</a> 
+                <a href="edit.php">Edit</a> 
                     |
                 <a href="hapus.php?id=<?= $row['id_barang']?>" onclick="return confirm('Apakah Produk Akan Di Hapus');">Delete</a>
             </td>
@@ -49,8 +51,5 @@
         <?php $i++; ?>
 	    <?php endforeach; ?>
     </table>
-  
-</body>
-</html>
-</body>
-</html>
+
+       
