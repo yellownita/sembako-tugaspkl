@@ -11,9 +11,6 @@ $gambar = $_POST['gambar'];
  
 // menginput data ke database
 mysqli_query($conn,"INSERT INTO barang VALUES('','$id_user','$nama_barang','$harga','$stok', '$gambar')"); 
-
-
-
  
 // mengalihkan halaman kembali ke index.php
 header("location:barang.php");

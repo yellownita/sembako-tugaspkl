@@ -5,8 +5,6 @@
 </head>
 <body>
  
-	<h2>CRUD DATA MAHASISWA - WWW.MALASNGODING.COM</h2>
-	<br/>
 	<a href="barang.php">KEMBALI</a>
 	<br/>
 	<br/>
@@ -15,19 +13,19 @@
 		<table>
 			<tr>			
 				<td>Nama Barang </td>
-				<td><input type="text" name="nama_barang"></td>
+				<td><input type="text" name="nama_barang" required></td>
 			</tr>
 			<tr>
 				<td>Harga</td>
-				<td><input type="number" name="harga"></td>
+				<td><input type="number" name="harga" required></td>
 			</tr>
 			<tr>
 				<td>Stok</td>
-				<td><input type="number" name="stok"></td>
+				<td><input type="number" name="stok" required></td>
 			</tr>
             <tr>
 				<td>Gambar</td>
-				<td><input type="text" name="gambar"></td>
+				<td><input type="text" name="gambar" required></td>
 			</tr>
 			<tr>
 				<td></td>

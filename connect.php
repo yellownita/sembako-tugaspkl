@@ -1,8 +1,19 @@
 <?php
-$sname= "localhost";
-$unmae= "root";
-$password = "";
 
-$db_name = "sembako";
+    // koneksi
+    $conn = mysqli_connect("localhost" , "root" , "", "sembako");
+    // Check connection
+    if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      exit();
+    } 
+    else {
+        echo("berhasil terkoneksi ke database");
+    }
 
-$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+
+
+
+
+    
+?>

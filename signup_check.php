@@ -56,44 +56,30 @@ if (isset($_POST['name']) && isset($_POST['uname']) && isset($_POST['email'])&& 
 
 
 
-	// hps
-	
 
-		// hashing the password
-        // enkripsi password
-	    # $password = password_hash($pass, PASSWORD_DEFAULT);
+// // hashing the password
+$pass2 = password_hash($pass, PASSWORD_DEFAULT);
 
-		// else{
-
-		// 	// hashing the password
-		// 	$pass = md5($pass);
-	
-			
-		// }
-
-
-		// hsg
-
-	    $sql = "SELECT * FROM user WHERE email='$email' ";
-		$result = mysqli_query($conn, $sql);
+  $sql = "SELECT * FROM user WHERE email='$email' ";
+ 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) > 0) {
 			header("Location: signup.php?error=The username is taken try another& $user");
-	        exit();
-		}else {
-           $sql2 = "INSERT INTO `user` (`id_user`, `name`, `username`, `email`, `whatsaap`, `password`) VALUES (NULL, '$name', '$uname', '$email', '$whatsapp', '$pass')";
-           $result2 = mysqli_query($conn, $sql2);
-           if ($result2) {
+ 	        exit();
+ 		}else {
+           $sql2 = "INSERT INTO `user` (`id_user`, `name`, `username`, `email`, `whatsaap`, `password`) VALUES (NULL,'$name', '$uname', '$email', '$whatsapp', '$pass2')";
+          $result2 = mysqli_query($conn, $sql2);
+            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");
 	         exit();
-           }else {
-	           	header("Location: signup.php?error=unknown error occurred& $user");
-		        exit();
+          }else {
+           	header("Location: signup.php?error=unknown error occurred& $user");
+	        exit();
            }
 		}
 	}
 	
-else{
-	header("Location: indexlogin.php");
-	exit();
-}
+// else{
+// 	header("Location: indexlogin.php");
+// 	exit();
+// }

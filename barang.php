@@ -9,6 +9,7 @@
 <body>
 <?php
     session_start();
+    if(!isset($_SESSION["login"]))
    
     require 'connect.php';
     $barang = mysqli_query($conn,"SELECT * FROM barang ORDER BY nama_barang");
@@ -28,7 +29,8 @@
             <th>Harga </th>
             <th>Stok </th>
             <th>Gambar </th>
-            <th>Aksi</th>          
+            <th>Aksi</th>     
+            <th>Last Edit By</th>     
         </tr>
 
          <?php $i = 1; ?>
@@ -38,7 +40,7 @@
            
             <td> <?= $row["id_barang"]; ?> </td>
             <td> <?= $row["nama_barang"]; ?> </td>
-            <td> Rp <?= $row["harga"], 0,',','.'; ?> </td>
+            <td> Rp <?= $row["harga"],00,',','.'; ?> </td>
             <td> <?= $row["stok"]; ?> </td>
             <td> <img src="./gambar/<?= $row['gambar']?>" width="40%"></td>
             <td>
@@ -46,6 +48,7 @@
                     |
                 <a href="hapus.php?id=<?= $row['id_barang']?>" onclick="return confirm('Apakah Produk Akan Di Hapus');">Delete</a>
             </td>
+            <td><?= $row["id_user"]; ?></td>
            
         </tr>
         <?php $i++; ?>

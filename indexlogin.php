@@ -1,45 +1,66 @@
+<?php
+	 session_start();
+	 if (isset($_SESSION["login"])){
+		 header("Location: home.php");
+	 }
+?>
 <!DOCTYPE html>
+<?php  
+	require 'connect.php';
+
+	if( isset($_POST["login"]) ) {
+
+		$email = $_POST["email"];
+		$password = $_POST["password"];
+		$result = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
+	
+		// cek username
+		if( mysqli_num_rows($result) === 1 ) {
+			// cek password
+			$row = mysqli_fetch_assoc($result);
+			if( password_verify($password, $row['password']) ) {
+				header("Location: home.php");
+				exit;
+			}
+
+		}
+	
+		$error = false ;
+	
+	}
+	
+?>
 <html>
 <head>
-	<title>LOGIN</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
-	<!-- bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<title>Halaman Login</title>
 </head>
-
 <body>
 
-</headerr>
-		<form action="login.php" method="post">
-     	<h2>LOGIN</h2>
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
+<h1>Halaman Login</h1>
 
-        <label>Email</label>
-     	<input type="email" name="email" placeholder="Email"><br>
+<!-- <?php #if( isset($error) ) : ?>
+	<p style="color: red; font-style: italic;">email / password salah</p>
+<?php #endif; ?> -->
 
-     	<label>Password</label>
-     	<input type="password" name="password" placeholder="Password"><br>
+<form action="" method="post">
 
-        
-
-     	 <button type="submit">Login</button>
-
-          <a href="signup.php">Create an account</a>
-     </form>
-	</headerr>
-
-
+	<ul>
+		<li>
+			<label for="email">Email :</label>
+			<input type="email" name="email" id="email">
+		</li>
+		<li>
+			<label for="password">Password :</label>
+			<input type="password" name="password" id="password">
+		</li>
+		<li>
+			<button type="submit" name="login">Login</button>
+		</li>
+		<li>
+			<a href="signup.php">Registrasi</a>
+		</li>
+	</ul>
 	
-
-	<script type="module">
-  import { Toast } from 'bootstrap.esm.min.js'
-
-  Array.from(document.querySelectorAll('.toast'))
-    .forEach(toastNode => new Toast(toastNode))
-</script>
-
+</form>
 </body>
 </html>
