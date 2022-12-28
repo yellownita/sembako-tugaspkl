@@ -30,7 +30,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             if ($row['email'] === $email && $row['password'] === $pass) {
             	$_SESSION['email'] = $row['email'];
             	$_SESSION['password'] = $row['password'];
-            	header("Location: home.php");
+            	header("Location: baranng.php");
 		        exit();
             }else{
 				header("Location: indexlogin.php?error=Incorect email or password");
@@ -45,4 +45,4 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 }else{
 	header("Location: indexlogin.php");
 	exit();
-}
+} 

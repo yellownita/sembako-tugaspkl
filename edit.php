@@ -4,7 +4,6 @@
 	<title>CRUD</title>
 </head>
 <body>
-	
 	<a href="barang.php">KEMBALI</a>
 	<br/> 
 	<br/>
@@ -15,7 +14,7 @@
 	$data = mysqli_query($conn,"SELECT * FROM barang WHERE id='$id'");
 	while($d = mysqli_fetch_array($data)){
 		?>
-		<form method="post" action="update.php">
+		<form method="post" action="functions.php">
 			<table>
 				<tr>			
 					<td>Nama Barang</td>

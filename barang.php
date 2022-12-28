@@ -14,11 +14,15 @@
     require 'connect.php';
     $barang = mysqli_query($conn,"SELECT * FROM barang ORDER BY nama_barang");
 ?>
+     
+     <h1>Your email has been login </h1>
+     
+     <a href="logout.php">Logout</a>
+     <a href="tambah.php">Tambahkan barang</a>
+    
+     
 
     <h1>Stok Barang</h1>
-    <a href="tambah.php">Tambahkan barang</a>
-    <a href="home.php">Kembali</a>
-    <a href="logout.php">Logout</a>
    
     <br> <br>
     <table border = "1" cellpadding = "10" cellspacing = "8">
@@ -40,7 +44,7 @@
            
             <td> <?= $row["id_barang"]; ?> </td>
             <td> <?= $row["nama_barang"]; ?> </td>
-            <td> Rp <?= $row["harga"],00,',','.'; ?> </td>
+            <td> Rp <?= $row["harga"],',','.'; ?> </td>
             <td> <?= $row["stok"]; ?> </td>
             <td> <img src="./gambar/<?= $row['gambar']?>" width="40%"></td>
             <td>
@@ -55,4 +59,10 @@
 	    <?php endforeach; ?>
     </table>
 
-       
+    <?php 
+
+ ?>
+
+<body>
+    
+

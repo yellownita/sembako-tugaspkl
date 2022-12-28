@@ -1,7 +1,7 @@
 <?php
 	 session_start();
 	 if (isset($_SESSION["login"])){
-		 header("Location: home.php");
+		 header("Location: barang.php");
 	 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 			// cek password
 			$row = mysqli_fetch_assoc($result);
 			if( password_verify($password, $row['password']) ) {
-				header("Location: home.php");
+				header("Location: barang.php");
 				exit;
 			}
 
